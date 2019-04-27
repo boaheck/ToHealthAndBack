@@ -8,7 +8,7 @@ public class CharacterController2D : MonoBehaviour {
 	BoxCollider2D col;
 	Vector2 pos, boxSize, boxOffset;
 	public LayerMask groundLayers;
-	public bool grounded, head, left, right;
+	public bool grounded, head, left, right, wall;
 	public float timeSinceLastGrounded = 0.0f;
 
 	void Start () {
@@ -28,12 +28,22 @@ public class CharacterController2D : MonoBehaviour {
 		rigb.MovePosition (pos + move);
 	}
 
+	public int WallDir() {
+		if(left){
+			return -1;
+		}else if(right){
+			return 1;
+		}
+		return 0;
+	}
+
 	void Update () {
 		pos = new Vector2 (transform.position.x, transform.position.y);
 		grounded = Physics2D.OverlapBox (pos + boxOffset + (Vector2.down * 0.07f), boxSize,0,groundLayers.value);
 		head = Physics2D.OverlapBox (pos + boxOffset + (Vector2.up * 0.07f), boxSize,0,groundLayers.value);
 		left = Physics2D.OverlapBox (pos + boxOffset + (Vector2.left * 0.07f), boxSize,0,groundLayers.value);
 		right = Physics2D.OverlapBox (pos + boxOffset + (Vector2.right * 0.07f), boxSize,0,groundLayers.value);
+		wall = left || right;
 		if(grounded){
 			timeSinceLastGrounded = 0.0f;
 		}else{

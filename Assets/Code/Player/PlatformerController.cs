@@ -14,6 +14,8 @@ public class PlatformerController : MonoBehaviour
     bool running = false;
     float speedMod = 0.0f;
     float jumpPressed = 0.0f;
+    float wallStickTime = 0.0f;
+    bool wallStuck = false;
     bool jumping = false;
     bool jumpheld = false;
 
@@ -21,6 +23,7 @@ public class PlatformerController : MonoBehaviour
     public float speed = 10.0f;
     public float runSpeedMod = 2.0f;
     public float wallJumpKick = 5.0f;
+    public float wallStick = 0.1f;
     public float airAcceleration = 10;
     public float airDirAcceleration = 30;
     public float airDeceleration = 1;
@@ -74,12 +77,31 @@ public class PlatformerController : MonoBehaviour
                 xVel = 0;
             }
         }else{
+            int wallDir = character.WallDir();
+            if(Mathf.Sign(xVel) == wallDir){
+                xVel = 0;
+            }
             if(moving){
                 float targetSpeed = Mathf.Sign(Input.GetAxis("Horizontal")) * speed * speedMod;
-                if (Mathf.Sign(targetSpeed) != Mathf.Sign(xVel)){
-                    xVel = Mathf.MoveTowards(xVel,targetSpeed,airDirAcceleration * speedMod * Time.fixedDeltaTime);
+                if(character.wall){
+                    if(Mathf.Sign(targetSpeed) != wallDir){
+                        if(!wallStuck){
+                            wallStuck = true;
+                            wallStickTime = wallStick;
+                        }
+                        if(wallStickTime <= 0){
+                            xVel = targetSpeed;
+                        }
+                        wallStickTime -= Time.fixedDeltaTime;
+                    }else {
+                        wallStuck = false;
+                    }
                 }else{
-                    xVel = Mathf.MoveTowards(xVel,targetSpeed,airAcceleration * speedMod * Time.fixedDeltaTime);
+                    if (Mathf.Sign(targetSpeed) != Mathf.Sign(xVel)){
+                        xVel = Mathf.MoveTowards(xVel,targetSpeed,airDirAcceleration * speedMod * Time.fixedDeltaTime);
+                    }else{
+                        xVel = Mathf.MoveTowards(xVel,targetSpeed,airAcceleration * speedMod * Time.fixedDeltaTime);
+                    }
                 }
             } else {
                 xVel = Mathf.MoveTowards(xVel,0,airDeceleration * speedMod * Time.fixedDeltaTime);
@@ -95,17 +117,6 @@ public class PlatformerController : MonoBehaviour
                 yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * jumpEndMult * Time.fixedDeltaTime);
             }
         }
-
-        if(character.left){
-            if(xVel < 0){
-                xVel = 0;
-            }
-        }
-        if(character.right){
-            if(xVel > 0){
-                xVel = 0;
-            }
-        }
         
         if(jumpPressed > 0){
             if(character.timeSinceLastGrounded < coyoteTime){
@@ -113,15 +124,11 @@ public class PlatformerController : MonoBehaviour
                 jumpPressed = 0.0f;
                 jumpheld = Input.GetButton("Jump");
                 jumping = true;
-            }else if(character.left){
+            }else if(character.wall){
                 yVel = wallJumpSpeed;
-                xVel = wallJumpKick * speedMod;
-                jumpPressed = 0.0f;
-                jumpheld = Input.GetButton("Jump");
-                jumping = true;
-            }else if(character.right){
-                yVel = wallJumpSpeed;
-                xVel = -wallJumpKick * speedMod;
+                xVel = -character.WallDir() * wallJumpKick * speedMod;
+                wallStickTime = 0;
+                wallStuck = false;
                 jumpPressed = 0.0f;
                 jumpheld = Input.GetButton("Jump");
                 jumping = true;
