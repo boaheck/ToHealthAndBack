@@ -22,6 +22,7 @@ public class PlatformerController : MonoBehaviour
     public float runSpeed = 10.0f;
 
     //Vertical Movement
+    public float fallSpeed = 20;
     public float gravity = 9.0f;
     public float fallMult = 2.0f;
     public float jumpEndMult = 2.5f;
@@ -48,6 +49,9 @@ public class PlatformerController : MonoBehaviour
         }else if(jumpPressed > 0){
             jumpPressed -= Time.deltaTime;
         }
+        if(jumpheld && Input.GetButtonUp("Jump")){
+            jumpheld = false;
+        }
     }
 
     void FixedUpdate() {
@@ -60,6 +64,29 @@ public class PlatformerController : MonoBehaviour
         } else {
             xVel = 0;
         }
+
+        if(character.grounded){
+            yVel = 0;
+            jumping = false;
+        }else{
+            if(yVel <= 0){
+                yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * fallMult * Time.fixedDeltaTime);
+            }else if(jumpheld){
+                yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * Time.fixedDeltaTime);
+            }else{
+                yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * jumpEndMult * Time.fixedDeltaTime);
+            }
+        }
+        
+        if(jumpPressed > 0){
+            if(character.timeSinceLastGrounded < coyoteTime){
+                yVel = jumpSpeed;
+                jumpPressed = 0.0f;
+                jumpheld = Input.GetButton("Jump");
+                jumping = true;
+            }
+        }
+
         character.Move(new Vector2(xVel,yVel) * Time.fixedDeltaTime);
     }
 }
