@@ -18,8 +18,9 @@ public class PlatformerController : MonoBehaviour
     bool jumpheld = false;
 
     //Horizontal Movement
-    public float speed = 5.0f;
+    public float speed = 10.0f;
     public float runSpeedMod = 2.0f;
+    public float wallJumpKick = 5.0f;
     public float airAcceleration = 10;
     public float airDirAcceleration = 30;
     public float airDeceleration = 1;
@@ -30,6 +31,7 @@ public class PlatformerController : MonoBehaviour
     public float fallMult = 2.0f;
     public float jumpEndMult = 2.5f;
     public float jumpSpeed = 10.0f;
+    public float wallJumpSpeed = 5.0f;
     public float landJumpTime = 0.05f;
     public float coyoteTime = 0.03f;
 
@@ -80,7 +82,7 @@ public class PlatformerController : MonoBehaviour
                     xVel = Mathf.MoveTowards(xVel,targetSpeed,airAcceleration * speedMod * Time.fixedDeltaTime);
                 }
             } else {
-                xVel = Mathf.MoveTowards(xVel,0,airDeceleration * Time.fixedDeltaTime);
+                xVel = Mathf.MoveTowards(xVel,0,airDeceleration * speedMod * Time.fixedDeltaTime);
             }
             if(character.head){
                 yVel = 0;
@@ -108,6 +110,18 @@ public class PlatformerController : MonoBehaviour
         if(jumpPressed > 0){
             if(character.timeSinceLastGrounded < coyoteTime){
                 yVel = jumpSpeed;
+                jumpPressed = 0.0f;
+                jumpheld = Input.GetButton("Jump");
+                jumping = true;
+            }else if(character.left){
+                yVel = wallJumpSpeed;
+                xVel = wallJumpKick * speedMod;
+                jumpPressed = 0.0f;
+                jumpheld = Input.GetButton("Jump");
+                jumping = true;
+            }else if(character.right){
+                yVel = wallJumpSpeed;
+                xVel = -wallJumpKick * speedMod;
                 jumpPressed = 0.0f;
                 jumpheld = Input.GetButton("Jump");
                 jumping = true;
