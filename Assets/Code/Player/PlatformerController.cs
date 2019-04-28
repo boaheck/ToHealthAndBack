@@ -31,6 +31,7 @@ public class PlatformerController : MonoBehaviour
     //Vertical Movement
     public float fallSpeed = 20;
     public float gravity = 9.0f;
+    public float initialFallSpeed = 2.0f;
     public float fallMult = 2.0f;
     public float jumpEndMult = 2.5f;
     public float jumpSpeed = 10.0f;
@@ -110,6 +111,9 @@ public class PlatformerController : MonoBehaviour
                 yVel = 0;
             }
             if(yVel <= 0){
+                if(!jumping && yVel > -initialFallSpeed){
+                    yVel = -initialFallSpeed;
+                }
                 yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * fallMult * Time.fixedDeltaTime);
             }else if(jumpheld){
                 yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * Time.fixedDeltaTime);
