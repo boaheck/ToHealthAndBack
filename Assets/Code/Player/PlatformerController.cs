@@ -39,6 +39,10 @@ public class PlatformerController : MonoBehaviour
     public float landJumpTime = 0.05f;
     public float coyoteTime = 0.03f;
 
+    //Visuals
+    public SpriteRenderer sprite;
+    public Animator anim;
+
     void Start(){
         //Setup
         character = GetComponent<CharacterController2D>();
@@ -61,6 +65,7 @@ public class PlatformerController : MonoBehaviour
         if(jumpheld && Input.GetButtonUp("Jump")){
             jumpheld = false;
         }
+        HandleVisuals();
     }
 
     void FixedUpdate() {
@@ -141,4 +146,18 @@ public class PlatformerController : MonoBehaviour
 
         character.Move(new Vector2(xVel,yVel) * Time.fixedDeltaTime);
     }
+
+    void HandleVisuals(){
+        if(character.wall && !character.grounded){
+            sprite.flipX = character.right;
+        }else if(moving){
+            sprite.flipX = xVel < 0.0f;
+        }
+        anim.SetBool("Running",running);
+        anim.SetBool("Moving",moving);
+        anim.SetBool("Wall",character.wall);
+        anim.SetBool("Grounded",character.grounded);
+        anim.SetFloat("yVel",yVel);
+    }
+
 }

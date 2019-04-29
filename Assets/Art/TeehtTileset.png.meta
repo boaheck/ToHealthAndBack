@@ -1,0 +1,540 @@
+fileFormatVersion: 2
+guid: edc88283a7aaebf46b1516f7ede3cd56
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TeehtTileset_0
+    21300002: TeehtTileset_1
+    21300004: TeehtTileset_2
+    21300006: TeehtTileset_3
+    21300008: TeehtTileset_4
+    21300010: TeehtTileset_5
+    21300012: TeehtTileset_6
+    21300014: TeehtTileset_7
+    21300016: TeehtTileset_8
+    21300018: TeehtTileset_9
+    21300020: TeehtTileset_10
+    21300022: TeehtTileset_11
+    21300024: TeehtTileset_12
+    21300026: TeehtTileset_13
+    21300028: TeehtTileset_14
+    21300030: TeehtTileset_15
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TeehtTileset_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0, y: -14}
+        - {x: -2, y: -14}
+        - {x: -14, y: 16}
+        - {x: 14, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e97f8f2edca10641b72e6d8a5c47069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14, y: 0}
+        - {x: -14, y: 2}
+        - {x: 16, y: 14}
+        - {x: 16, y: -14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 980e0956a38b50a429b63f98d8026fe5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14, y: -16}
+        - {x: -1, y: 14}
+        - {x: 1, y: 14}
+        - {x: 14, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9863e9d103160da448db3fe9814d764b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 208
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -14}
+        - {x: -16, y: 14}
+        - {x: 14, y: 0}
+        - {x: 14, y: -2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719a5a936ae8e7b4a94081ab8a3c5304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 144
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -13, y: 2}
+        - {x: -14, y: 16}
+        - {x: 14, y: 16}
+        - {x: 13, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eff423c3ebc8c24a97da813a62ad1c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2, y: -13}
+        - {x: 2, y: 13}
+        - {x: 16, y: 14}
+        - {x: 16, y: -14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ff323b28447e849b50447e4d909f55
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14, y: -16}
+        - {x: -13, y: -2}
+        - {x: 13, y: -2}
+        - {x: 14, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3328a5529c970642aa30dfdb2589cbb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_7
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 144
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -14}
+        - {x: -16, y: 14}
+        - {x: -2, y: 13}
+        - {x: -2, y: -13}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cfe30aea85ec2a4b9c3aa04a73d9985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2, y: -13}
+        - {x: 2, y: 2}
+        - {x: -13, y: 2}
+        - {x: -14, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: -14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: faea5912e3249d448864725abc4a5954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_9
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 16, y: -16}
+        - {x: -14, y: -16}
+        - {x: -13, y: -2}
+        - {x: 2, y: -2}
+        - {x: 2, y: 13}
+        - {x: 16, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4a410bd3c38ff43bcf0582f0c4502c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_10
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 80
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: 14}
+        - {x: -2, y: 13}
+        - {x: -2, y: -2}
+        - {x: 13, y: -2}
+        - {x: 14, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d42cd5f9e991414a80a42b9e2fc5a1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_11
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 80
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2, y: 2}
+        - {x: -2, y: -13}
+        - {x: -16, y: -14}
+        - {x: -16, y: 16}
+        - {x: 14, y: 16}
+        - {x: 13, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe4b18604c80a74c856712f59b266bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 2}
+        - {x: -16, y: 16}
+        - {x: -2, y: 16}
+        - {x: -2, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41fecf2a56db070499cd5cdf2863803d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2, y: 2}
+        - {x: 2, y: 16}
+        - {x: 16, y: 16}
+        - {x: 16, y: 2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d114a0c6e3bad4792b9ee3f699a9b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_14
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 2, y: -16}
+        - {x: 2, y: -2}
+        - {x: 16, y: -2}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d818977bb0ba249a526ba0675094a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TeehtTileset_15
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: -16, y: -2}
+        - {x: -2, y: -2}
+        - {x: -2, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb3c52ae2c546949a49599af774705a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2c3e52b06b3c5094695608dbe051c591
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
