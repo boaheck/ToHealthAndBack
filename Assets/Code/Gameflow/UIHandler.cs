@@ -16,7 +16,7 @@ public class UIHandler : MonoBehaviour
     }
 
     public void UpdateUI(){
-        money.text = "$" + manager.money;
+        money.text = "S" + manager.money;
         if(manager.money < 0){
             gameOver.SetActive(true);
         }

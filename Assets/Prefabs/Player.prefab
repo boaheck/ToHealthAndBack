@@ -59,7 +59,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -163,8 +163,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1579956927
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 35e72d5e5abe5604cb41b436cac9181f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036710ad6ccf86e4daba3c4419539b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlDelay: 3
 --- !u!114 &731641071011244725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,10 +272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfb583f488afb0418b520ac66600b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controllable: 0
   speed: 8
   runSpeedMod: 1.6
   wallJumpKick: 6
-  wallStick: 0.1
+  wallStick: 0.2
   airAcceleration: 20
   airDirAcceleration: 40
   airDeceleration: 6
@@ -310,6 +312,8 @@ MonoBehaviour:
   right: 0
   wall: 0
   timeSinceLastGrounded: 0
+  detectOffset: 0.06
+  detectionBoxScale: 0.9
 --- !u!50 &731641071011244714
 Rigidbody2D:
   serializedVersion: 4

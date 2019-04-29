@@ -18,6 +18,7 @@ public class PlatformerController : MonoBehaviour
     bool wallStuck = false;
     bool jumping = false;
     bool jumpheld = false;
+    public bool controllable = false;
 
     //Horizontal Movement
     public float speed = 10.0f;
@@ -51,27 +52,30 @@ public class PlatformerController : MonoBehaviour
 
     void Update(){
         //Handle input
-        running = Input.GetButton("Run");
-        if(running){
-            speedMod = runSpeedMod;
-        }else{
-            speedMod = 1.0f;
-        }
-        if(Input.GetButtonDown("Jump")){
-            jumpPressed = landJumpTime;
-        }else if(jumpPressed > 0){
-            jumpPressed -= Time.deltaTime;
-        }
-        if(jumpheld && Input.GetButtonUp("Jump")){
-            jumpheld = false;
+        if(controllable){
+            running = Input.GetButton("Run");
+            if(running){
+                speedMod = runSpeedMod;
+            }else{
+                speedMod = 1.0f;
+            }
+            if(Input.GetButtonDown("Jump")){
+                jumpPressed = landJumpTime;
+            }else if(jumpPressed > 0){
+                jumpPressed -= Time.deltaTime;
+            }
+            if(jumpheld && Input.GetButtonUp("Jump")){
+                jumpheld = false;
+            }
         }
         HandleVisuals();
     }
 
     void FixedUpdate() {
         //handle this in fixed update to avoid differences in axis value during time between update and fixed update
-        moving = Mathf.Abs(Input.GetAxis("Horizontal")) > 0.001;
-
+        if(controllable){
+            moving = Mathf.Abs(Input.GetAxis("Horizontal")) > 0.001;
+        }
         //Handle Movement   
 
         if(character.grounded){
@@ -85,7 +89,7 @@ public class PlatformerController : MonoBehaviour
         }else{
             int wallDir = character.WallDir();
             if(Mathf.Sign(xVel) == wallDir){
-                xVel = 0;
+                //xVel = 0;
             }
             if(moving){
                 float targetSpeed = Mathf.Sign(Input.GetAxis("Horizontal")) * speed * speedMod;
