@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TextSystem : MonoBehaviour {
 
 	public string[] lines;
 	public bool[] takeBreak;
 	public bool[] clear;
+	public Sprite[] pictures;
 	public float textSpeed;
 	public float fastTextMultiplier = 10;
 	public Text textbox;
+	public Image picture;
 	public AudioSource sound;
 	public float minPitch, maxPitch;
 	public int textboxHeight;
 	public bool finished;
+	public string levelToLoad;
 
 	float timer;
 	int line, letter, cline = 0;
@@ -46,6 +50,8 @@ public class TextSystem : MonoBehaviour {
 			if (!takeBreak[line] || Input.anyKeyDown) {
 				if (line >= lines.Length - 1) {
 					finished = true;
+					Time.timeScale = 1;
+					SceneManager.LoadScene(levelToLoad);
 				} else {
 					sound.pitch = minPitch;
 					sound.Play ();
@@ -62,6 +68,7 @@ public class TextSystem : MonoBehaviour {
 					}
 					currentText += "\n";
 					letter = 0;
+					picture.sprite = pictures[line];
 				}
 			}
 		} else {

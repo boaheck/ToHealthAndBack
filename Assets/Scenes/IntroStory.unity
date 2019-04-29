@@ -727,14 +727,58 @@ MonoBehaviour:
   - Well then, Let's go!
   takeBreak: 0001000001010001010100010101010001010101000101000100010001000001000101010101000100
   clear: 0000000000000000000000000100000100010101010001000000000000000000000000010101000001
+  pictures:
+  - {fileID: 21300000, guid: 50b1fc30bce8b6e46821688d75276e50, type: 3}
+  - {fileID: 21300000, guid: 50b1fc30bce8b6e46821688d75276e50, type: 3}
+  - {fileID: 21300000, guid: 50b1fc30bce8b6e46821688d75276e50, type: 3}
+  - {fileID: 21300000, guid: 50b1fc30bce8b6e46821688d75276e50, type: 3}
+  - {fileID: 21300000, guid: 50b1fc30bce8b6e46821688d75276e50, type: 3}
+  - {fileID: 21300000, guid: 915187486beabc14ea1c1760fbab494e, type: 3}
+  - {fileID: 21300000, guid: 915187486beabc14ea1c1760fbab494e, type: 3}
+  - {fileID: 21300000, guid: 915187486beabc14ea1c1760fbab494e, type: 3}
+  - {fileID: 21300000, guid: 915187486beabc14ea1c1760fbab494e, type: 3}
+  - {fileID: 21300000, guid: 915187486beabc14ea1c1760fbab494e, type: 3}
+  - {fileID: 21300000, guid: 915187486beabc14ea1c1760fbab494e, type: 3}
+  - {fileID: 21300000, guid: 915187486beabc14ea1c1760fbab494e, type: 3}
+  - {fileID: 21300000, guid: c6c01f0154b360d48b3379b4ad801846, type: 3}
+  - {fileID: 21300000, guid: c6c01f0154b360d48b3379b4ad801846, type: 3}
+  - {fileID: 21300000, guid: c6c01f0154b360d48b3379b4ad801846, type: 3}
+  - {fileID: 21300000, guid: 915187486beabc14ea1c1760fbab494e, type: 3}
+  - {fileID: 21300000, guid: 915187486beabc14ea1c1760fbab494e, type: 3}
+  - {fileID: 21300000, guid: fc8f3d7e233a90449b89e64a3b0f7a3e, type: 3}
+  - {fileID: 21300000, guid: fc8f3d7e233a90449b89e64a3b0f7a3e, type: 3}
+  - {fileID: 21300000, guid: 201877be5066e0248b83451cf5817248, type: 3}
+  - {fileID: 21300000, guid: c6c01f0154b360d48b3379b4ad801846, type: 3}
+  - {fileID: 21300000, guid: c6c01f0154b360d48b3379b4ad801846, type: 3}
+  - {fileID: 21300000, guid: 201877be5066e0248b83451cf5817248, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: c6c01f0154b360d48b3379b4ad801846, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
+  - {fileID: 21300000, guid: c6c01f0154b360d48b3379b4ad801846, type: 3}
+  - {fileID: 21300000, guid: c6c01f0154b360d48b3379b4ad801846, type: 3}
+  - {fileID: 21300000, guid: c6c01f0154b360d48b3379b4ad801846, type: 3}
+  - {fileID: 21300000, guid: a1d5a08a203a0ca4a884d778a776b5c1, type: 3}
   textSpeed: 0.03
   fastTextMultiplier: 100
   textbox: {fileID: 1102841087}
+  picture: {fileID: 1995761317}
   sound: {fileID: 1102841086}
   minPitch: 0.9
   maxPitch: 1
   textboxHeight: 6
   finished: 0
+  levelToLoad: Level 1
 --- !u!1 &1995761315
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +836,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bb85241e320ee4b4da1e3d8ee5f361b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50b1fc30bce8b6e46821688d75276e50, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
