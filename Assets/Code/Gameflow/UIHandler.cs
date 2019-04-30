@@ -15,10 +15,14 @@ public class UIHandler : MonoBehaviour
         UpdateUI();
     }
 
+    public void Dead(){
+        gameOver.SetActive(true);
+    }
+    public void UnDead(){
+        gameOver.SetActive(false);
+    }
+
     public void UpdateUI(){
         money.text = "S" + manager.money;
-        if(manager.money < 0){
-            gameOver.SetActive(true);
-        }
     }
 }

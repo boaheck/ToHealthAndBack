@@ -8,13 +8,13 @@ public class Manager : MonoBehaviour
 {
 
     public int money;
-    int respawnCharge = 100;
+    int respawnCharge = 200;
 
     public int nextLevel = 2;
 
     void Start()
     {
-        if(GameObject.FindObjectOfType<Manager>()){
+        if(GameObject.FindObjectsOfType<Manager>().Length > 1){
             Destroy(gameObject);
         }
     }
@@ -36,6 +36,10 @@ public class Manager : MonoBehaviour
     public void DecreaseMoney(int amt){
         money -= amt;
         GameObject.FindObjectOfType<UIHandler>().UpdateUI();
+        if(money < 0){
+            SceneManager.LoadScene("Debt");
+            Destroy(gameObject);
+        }
     }
 
     public void Reload(){
@@ -44,11 +48,15 @@ public class Manager : MonoBehaviour
             r.Reload();
         }
         DecreaseMoney(respawnCharge);
-        respawnCharge *= 2;
     }
 
     public void LoadNextLevel(){
+        if(nextLevel == 6){
+            SceneManager.LoadScene("Win");
+            Destroy(gameObject);
+        }
         SceneManager.LoadScene("Level " + nextLevel);
+        respawnCharge = nextLevel * 200;
         nextLevel++;
     }
 }

@@ -8,8 +8,8 @@ public class PlatformerController : MonoBehaviour
     CharacterController2D character;
 
     //status
-    float xVel = 0;
-    float yVel = 0;
+    public float xVel = 0;
+    public float yVel = 0;
     bool moving = false;
     bool running = false;
     float speedMod = 0.0f;
@@ -19,6 +19,7 @@ public class PlatformerController : MonoBehaviour
     bool jumping = false;
     bool jumpheld = false;
     public bool controllable = false;
+    public bool render = true;
 
     //Horizontal Movement
     public float speed = 10.0f;
@@ -44,9 +45,15 @@ public class PlatformerController : MonoBehaviour
     public SpriteRenderer sprite;
     public Animator anim;
 
+    //audio
+    public AudioClip jumpClp;
+    public AudioClip walljumpClp;
+    AudioSource aud;
+
     void Start(){
         //Setup
         character = GetComponent<CharacterController2D>();
+        aud = GetComponent<AudioSource>();
         speedMod = speed;
     }
 
@@ -72,62 +79,63 @@ public class PlatformerController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        //handle this in fixed update to avoid differences in axis value during time between update and fixed update
+        
         if(controllable){
+            //handle this in fixed update to avoid differences in axis value during time between update and fixed update
             moving = Mathf.Abs(Input.GetAxis("Horizontal")) > 0.001;
-        }
-        //Handle Movement   
+            //Handle Movement   
 
-        if(character.grounded){
-            yVel = 0;
-            jumping = false;
-            if(moving){
-                xVel = Mathf.Sign(Input.GetAxis("Horizontal")) * speed * speedMod;
-            } else {
-                xVel = 0;
-            }
-        }else{
-            int wallDir = character.WallDir();
-            if(Mathf.Sign(xVel) == wallDir){
-                //xVel = 0;
-            }
-            if(moving){
-                float targetSpeed = Mathf.Sign(Input.GetAxis("Horizontal")) * speed * speedMod;
-                if(character.wall){
-                    if(Mathf.Sign(targetSpeed) != wallDir){
-                        if(!wallStuck){
-                            wallStuck = true;
-                            wallStickTime = wallStick;
-                        }
-                        if(wallStickTime <= 0){
-                            xVel = targetSpeed;
-                        }
-                        wallStickTime -= Time.fixedDeltaTime;
-                    }else {
-                        wallStuck = false;
-                    }
-                }else{
-                    if (Mathf.Sign(targetSpeed) != Mathf.Sign(xVel)){
-                        xVel = Mathf.MoveTowards(xVel,targetSpeed,airDirAcceleration * speedMod * Time.fixedDeltaTime);
-                    }else{
-                        xVel = Mathf.MoveTowards(xVel,targetSpeed,airAcceleration * speedMod * Time.fixedDeltaTime);
-                    }
-                }
-            } else {
-                xVel = Mathf.MoveTowards(xVel,0,airDeceleration * speedMod * Time.fixedDeltaTime);
-            }
-            if(character.head){
+            if(character.grounded){
                 yVel = 0;
-            }
-            if(yVel <= 0){
-                if(!jumping && yVel > -initialFallSpeed){
-                    yVel = -initialFallSpeed;
+                jumping = false;
+                if(moving){
+                    xVel = Mathf.Sign(Input.GetAxis("Horizontal")) * speed * speedMod;
+                } else {
+                    xVel = 0;
                 }
-                yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * fallMult * Time.fixedDeltaTime);
-            }else if(jumpheld){
-                yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * Time.fixedDeltaTime);
             }else{
-                yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * jumpEndMult * Time.fixedDeltaTime);
+                int wallDir = character.WallDir();
+                if(Mathf.Sign(xVel) == wallDir){
+                    //xVel = 0;
+                }
+                if(moving){
+                    float targetSpeed = Mathf.Sign(Input.GetAxis("Horizontal")) * speed * speedMod;
+                    if(character.wall){
+                        if(Mathf.Sign(targetSpeed) != wallDir){
+                            if(!wallStuck){
+                                wallStuck = true;
+                                wallStickTime = wallStick;
+                            }
+                            if(wallStickTime <= 0){
+                                xVel = targetSpeed;
+                            }
+                            wallStickTime -= Time.fixedDeltaTime;
+                        }else {
+                            wallStuck = false;
+                        }
+                    }else{
+                        if (Mathf.Sign(targetSpeed) != Mathf.Sign(xVel)){
+                            xVel = Mathf.MoveTowards(xVel,targetSpeed,airDirAcceleration * speedMod * Time.fixedDeltaTime);
+                        }else{
+                            xVel = Mathf.MoveTowards(xVel,targetSpeed,airAcceleration * speedMod * Time.fixedDeltaTime);
+                        }
+                    }
+                } else {
+                    xVel = Mathf.MoveTowards(xVel,0,airDeceleration * speedMod * Time.fixedDeltaTime);
+                }
+                if(character.head){
+                    yVel = 0;
+                }
+                if(yVel <= 0){
+                    if(!jumping && yVel > -initialFallSpeed){
+                        yVel = -initialFallSpeed;
+                    }
+                    yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * fallMult * Time.fixedDeltaTime);
+                }else if(jumpheld){
+                    yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * Time.fixedDeltaTime);
+                }else{
+                    yVel = Mathf.MoveTowards(yVel,-fallSpeed,gravity * jumpEndMult * Time.fixedDeltaTime);
+                }
             }
         }
         
@@ -137,6 +145,8 @@ public class PlatformerController : MonoBehaviour
                 jumpPressed = 0.0f;
                 jumpheld = Input.GetButton("Jump");
                 jumping = true;
+                aud.pitch = Random.Range(0.9f,1.1f);
+                aud.PlayOneShot(jumpClp);
             }else if(character.wall){
                 yVel = wallJumpSpeed;
                 xVel = -character.WallDir() * wallJumpKick * speedMod;
@@ -145,6 +155,8 @@ public class PlatformerController : MonoBehaviour
                 jumpPressed = 0.0f;
                 jumpheld = Input.GetButton("Jump");
                 jumping = true;
+                aud.pitch = Random.Range(0.9f,1.1f);
+                aud.PlayOneShot(walljumpClp);
             }
         }
 
@@ -152,16 +164,26 @@ public class PlatformerController : MonoBehaviour
     }
 
     void HandleVisuals(){
-        if(character.wall && !character.grounded){
-            sprite.flipX = character.right;
-        }else if(moving){
-            sprite.flipX = xVel < 0.0f;
+        if(render){
+            sprite.enabled = true;
+            if(character.wall && !character.grounded){
+                sprite.flipX = character.right;
+            }else if(moving){
+                sprite.flipX = xVel < 0.0f;
+            }
+            anim.SetBool("Running",running);
+            anim.SetBool("Moving",moving);
+            anim.SetBool("Wall",character.wall);
+            anim.SetBool("Grounded",character.grounded);
+            anim.SetFloat("yVel",yVel);
+        }else{
+            sprite.enabled = false;
         }
-        anim.SetBool("Running",running);
-        anim.SetBool("Moving",moving);
-        anim.SetBool("Wall",character.wall);
-        anim.SetBool("Grounded",character.grounded);
-        anim.SetFloat("yVel",yVel);
+    }
+
+    public void Freeze(){
+        yVel = 0;
+        xVel = 0;
     }
 
 }
